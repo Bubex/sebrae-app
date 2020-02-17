@@ -55,7 +55,7 @@ export function* signUp({ payload }) {
             }
         }
         
-        history.push('/');
+        history.push('/analise');
     } catch(err) {
         toast.error('Erro ao cadastrar. Verifique seus dados.')
         yield put(signFailure());

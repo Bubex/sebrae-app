@@ -15,7 +15,7 @@ export default function Dashboard() {
       datasets: [
         {
           label: 'Meu perfil',
-          backgroundColor: 'rgba(255,255,255,0.4)',
+          backgroundColor: 'rgba(255,255,255,0.6)',
           borderColor: 'rgba(255,255,255,1)',
           pointBackgroundColor: 'rgba(255,255,255,1)',
           pointBorderColor: '#fff',
@@ -28,17 +28,40 @@ export default function Dashboard() {
     };
 
     const options = {
+      label: {
+        display: false
+      },
       defaultFontColor: "#FFF",
       legend: {
+        display: false,
+        fontColor: "#fff",
         labels: {
             fontColor: "#fff",
             fontSize: 18
         }
+      },
+      scale: {
+        ticks: {
+          fontColor: "#000",
+          beginAtZero: true,
+          max: 10,
+        },
+        angleLines: { 
+          color: "rgba(255,255,255,0.3)"
+        },
+        gridLines: { 
+          color: "rgba(255,255,255,0.3)" 
+        },
+        pointLabels: {
+          fontColor: "#FFF",
+          fontSize: 18
+      },
       }
     }
 
     return (
         <Container>
+            <h1>Seu Perfil</h1>
             <Radar data={data} options={options}/>
         </Container>
     );

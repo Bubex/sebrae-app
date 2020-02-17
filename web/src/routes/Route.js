@@ -13,6 +13,7 @@ export default function RouteWrapper({
     ...rest
 }) {
     const { signed } = store.getState().auth;
+    const { analysis } = store.getState().user;
 
     if(!signed && isPrivate) {
         return <Redirect to="/" />
@@ -21,6 +22,15 @@ export default function RouteWrapper({
     if(signed && !isPrivate) {
         return <Redirect to="/dashboard" />
     }
+
+    if(rest.path === '/analise' && analysis !== null) {
+        return <Redirect to="/dashboard" />
+    }
+    
+    if(signed && rest.path !== '/analise' && !analysis) {
+        return <Redirect to="/analise" />
+    }
+
 
     const Layout = signed ? DefaultLayout : AuthLayout;
 

@@ -10,29 +10,14 @@ import Analysis from '~/pages/Analysis';
 import Courses from '~/pages/Courses';
 
 export default function Routes() {
-    return ( <
-        Switch >
-        <
-        Route path = "/"
-        exact component = { SignIn }
-        /> <
-        Route path = "/registrar"
-        component = { SignUp }
-        />
+    return ( 
+        <Switch>
+            <Route path="/" exact component={ SignIn }/>
+            <Route path="/registrar" component={ SignUp }/>
 
-        <
-        Route path = "/dashboard"
-        component = { Dashboard }
-        isPrivate / >
-        <
-        Route path = "/analise"
-        component = { Analysis }
-        isPrivate / >
-        <
-        Route path = "/cursos"
-        component = { Courses }
-        isPrivate / >
-        <
-        /Switch>
+            <Route path="/dashboard" component={ Dashboard } isPrivate />
+            <Route path="/analise" component={ Analysis } isPrivate />
+            <Route path="/cursos" component={ Courses } isPrivate />
+        </Switch>
     )
 }

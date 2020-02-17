@@ -9,4 +9,9 @@ export const Container = styled.div`
     color: white;
     font-size: 20px;
     text-align: center;
+
+    h1 {
+        font-size: 30px;
+        margin-bottom: 40px;
+    }
 `;

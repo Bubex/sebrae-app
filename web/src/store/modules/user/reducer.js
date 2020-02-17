@@ -15,6 +15,7 @@ export default function user(state = INITIAL_STATE, action) {
             }
             case '@auth/SIGN_OUT': {
                 draft.profile = null;
+                draft.analysis = null;
                 break;
             }
             case '@user/REGISTER_ANALYSIS_REQUEST': {

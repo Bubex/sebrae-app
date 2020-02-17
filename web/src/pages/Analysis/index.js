@@ -9,6 +9,7 @@ import { Container } from './styles';
 
 
 export default function Analysis() {
+    
     const dispatch = useDispatch();
     const user = useSelector(state => state.user.profile.id);
 
