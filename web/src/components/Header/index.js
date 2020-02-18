@@ -1,16 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Dropdown } from 'react-bootstrap';
+import { Link, Redirect } from 'react-router-dom';
 
 import { signOut } from '~/store/modules/auth/actions';
 
-import sebrae from '~/assets/sebrae-m.png';
+import logo from '~/assets/header/undertake.png';
+import iconProfile from '~/assets/header/icon-profile.png';
 
-import { Container, Content, Profile } from './styles';
+import { Container, Content } from './styles';
 import { useDispatch } from 'react-redux';
 
 export default function Header() {
-    const profile = useSelector(state => state.user.profile);
 
     const dispatch = useDispatch();
 
@@ -18,23 +18,31 @@ export default function Header() {
         dispatch(signOut());
     }
 
+    function myProfile() {
+        return <Redirect to="/perfil" />
+    }
+
     return(
         <Container>
             <Content>
                 <nav>
-                    <img src={sebrae} alt="SEBRAE" />
-                    <Link to="/dashboard">DASHBOARD</Link>
+                    <Link to="/dashboard">
+                        <img src={logo} alt="Undertake" />
+                    </Link>
                 </nav>
 
                 <aside>
-                    <Profile>
-                        <div>
-                            <strong>{profile.name}</strong>
-                            <span onClick={handleSignOut}>Sair</span>
-                        </div>
-                        <img src="https://api.adorable.io/avatars/50/abott@adorable.png" alt="Avatar" />
-                    </Profile>
-                </aside>
+                    <Dropdown alignRight>
+                        <Dropdown.Toggle>
+                            <img src={iconProfile} alt="" />
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item onClick={myProfile}>Meu Perfil</Dropdown.Item>
+                            <Dropdown.Item onClick={handleSignOut}>Sair</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </aside> 
             </Content>
         </Container>
     )

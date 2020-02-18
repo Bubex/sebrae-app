@@ -4,6 +4,7 @@ import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
 import CourseController from './app/controllers/CourseController';
 import AnalysisController from './app/controllers/AnalysisController';
+import LevelController from './app/controllers/LevelController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -15,6 +16,7 @@ routes.post('/sessions', SessionController.store);
 routes.use(authMiddleware);
 
 routes.get('/courses', CourseController.index);
+routes.get('/levels', LevelController.index);
 routes.post('/analysis', AnalysisController.store);
 
 export default routes;

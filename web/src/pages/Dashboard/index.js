@@ -1,68 +1,51 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Radar } from 'react-chartjs-2';
+
 import api from '~/services/api';
 
-import { Container } from './styles';
+import { Container, Content } from './styles';
+
+import DashInfo from '~/components/DashInfo';
+
+import Nv1 from '~/assets/dashboard/nv1.png';
+import Nv2 from '~/assets/dashboard/nv2.png';
+import Nv3 from '~/assets/dashboard/nv3.png';
+import Nv4 from '~/assets/dashboard/nv4.png';
 
 export default function Dashboard() {
+    const { profile } = useSelector(state => state.user);
+    const lv = profile.level.id
+    const [levels, setLevels] = useState([]);
+    const imagesNv = ['', Nv1, Nv2, Nv3, Nv4];
 
-    const analysis = useSelector(state => state.user.analysis);
-    const dados = Object.values(analysis);
+    useEffect(() => {
+        async function loadLevels() {
+            const response = await api.get('/levels');
 
-    const data = {
-      labels: ['Operacional', 'Pessoal', 'Finanças', 'Fiscal', 'Administrativo', 'Comercial', 'Jurídico'],
-      datasets: [
-        {
-          label: 'Meu perfil',
-          backgroundColor: 'rgba(255,255,255,0.6)',
-          borderColor: 'rgba(255,255,255,1)',
-          pointBackgroundColor: 'rgba(255,255,255,1)',
-          pointBorderColor: '#fff',
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: 'rgba(255,255,255,1)',
-          fontColor: "#FFF",
-          data: [dados[1], dados[2], dados[3], dados[4], dados[5], dados[6], dados[7]],
-        },
-      ],
-    };
-
-    const options = {
-      label: {
-        display: false
-      },
-      defaultFontColor: "#FFF",
-      legend: {
-        display: false,
-        fontColor: "#fff",
-        labels: {
-            fontColor: "#fff",
-            fontSize: 18
+            setLevels(response.data.levels);
         }
-      },
-      scale: {
-        ticks: {
-          fontColor: "#000",
-          beginAtZero: true,
-          max: 10,
-        },
-        angleLines: { 
-          color: "rgba(255,255,255,0.3)"
-        },
-        gridLines: { 
-          color: "rgba(255,255,255,0.3)" 
-        },
-        pointLabels: {
-          fontColor: "#FFF",
-          fontSize: 18
-      },
-      }
-    }
+
+        loadLevels();
+    }, []);
 
     return (
         <Container>
-            <h1>Seu Perfil</h1>
-            <Radar data={data} options={options}/>
+            <DashInfo />
+            <Content>
+                <h1>Meu desempenho</h1>
+                <img src={imagesNv[lv]} alt=""/>
+                <ul>
+                    {levels.map(level => (
+                        <li 
+                        key={level.id} 
+                        className={level.id == lv ? 'activated' : (level.id < lv ? 'finished' : 'deactivated')}>
+                            <span>Fase {level.id} - {level.name}</span>
+                            <button>{level.id == lv ? 'continuar' : (level.id < lv ? 'revisar' : '')}</button>
+                            <span>{level.id == lv ? 'Em andamento' : (level.id < lv ? 'Finalizado' : 'Bloqueado')}</span>
+                        </li>
+                    ))}
+                </ul>
+            </Content>
         </Container>
     );
 }

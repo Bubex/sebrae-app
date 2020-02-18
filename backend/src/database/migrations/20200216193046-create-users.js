@@ -22,6 +22,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      company: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
       level_id: {
         type: Sequelize.INTEGER,
         references: { model: 'levels', key: 'id' },

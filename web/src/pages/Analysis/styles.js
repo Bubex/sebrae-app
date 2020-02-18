@@ -1,21 +1,24 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    max-width: 1140px;
-    margin: 30px auto;
-    background: #007ac3;
+    max-width: 650px;
+    margin: 20px auto;
+    background: #FFF;
     border-radius: 20px;
     padding: 50px;
-    color: white;
-    font-size: 20px;
+    color: #007ac3;
     text-align: center;
     
     h1 {
-        margin-bottom: 40px;
+        margin-bottom: 30px;
+        font-size: 20px;
+        font-weight: 900;
     }
     
     p {
         margin-bottom: 50px;
+        font-weight: 700;
+        font-size: 16px;
     }
 
     form {
@@ -27,52 +30,61 @@ export const Container = styled.div`
             justify-content: center;
             align-items: center;
             max-width: 250px;
-            margin: auto;
+            margin: 50px auto;
 
-            input {
-                margin: 20px 0;
-                -webkit-appearance: none;
-                width: 100%;
-                height: 15px;
-                border-radius: 5px;  
-                background: #d3d3d3;
-                outline: none;
-                opacity: 0.7;
-                -webkit-transition: .2s;
-                transition: opacity .2s;
+            .MuiTypography-root {
+                color: #33445A;
+            }
 
-                &::-webkit-slider-thumb {
-                    -webkit-appearance: none;
-                    appearance: none;
-                    width: 25px;
-                    height: 25px;
-                    border-radius: 50%; 
-                    background: #FFF;
-                    cursor: pointer;
+            .MuiSlider-root {
+                color: #2699FB;
+
+                .MuiSlider-rail {
+                    height: 15px;
+                    border-radius: 20px;
                 }
-                  
-                &::-moz-range-thumb {
-                    width: 25px;
-                    height: 25px;
-                    border-radius: 50%;
-                    background: #FFF;
-                    cursor: pointer;
+
+                .MuiSlider-track {
+                    height: 15px;
+                    border-radius: 20px;
+                }
+                .MuiSlider-thumb {
+                    width: 15px;
+                    height: 15px;
+                    margin-top: 0px;
+                    margin-left: -7px;
+                }
+
+                .PrivateValueLabel-circle-54 {
+                    background: #add9fd;
+                    border: 1px solid #2699fb;
+                }
+
+                .PrivateValueLabel-label-55 {
+                    color: #2699fb;
+                    font-weight: 800;
+                }
+
+                .PrivateValueLabel-label-55 {
+                    &::after {
+                        content: '%';
+                    }
                 }
             }
         }
 
         button {
-            background-color: #FFF;
             border: none;
-            padding: 10px 25px;
-            margin-top: 40px;
-            border-radius: 10px;
-            font-size: 17px;
-            color: #007ac3;
+            background-color: #2699fb;
+            border-radius: 30px;
+            color: #FFF;
+            font-size: 14px;
+            padding: 10px 90px;
             font-weight: 600;
+            margin-top: 50px;
 
             &:hover {
-                background-color: #c7c7c7f5;
+                background-color: #568ebb;
             }
         }
     }

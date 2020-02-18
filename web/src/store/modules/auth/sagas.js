@@ -14,19 +14,13 @@ export function* signIn({ payload }) {
             email, password
         });
     
-        const { token, user, analysis_id } = response.data;
+        const { token, user } = response.data;
 
         api.defaults.headers['Authorization'] = `Bearer ${token}`;
     
         yield put(signInSuccess(token, user));
-
-        console.log(response.data)
     
-        if(!user.analysis_id){
-            history.push('/analise');
-        } else {
-            history.push('/dashboard');
-        }
+        history.push('/');
     } catch(err) {
         toast.error('Falha na autenticação, verifique seus dados.')
         yield put(signFailure());

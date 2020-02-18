@@ -17,6 +17,11 @@ module.exports = {
         "name": "Chefe",
         "created_at": new Date(),
         "updated_at": new Date(),
+      },
+      {
+        "name": "BOSS",
+        "created_at": new Date(),
+        "updated_at": new Date(),
       }
     ]);
   },
