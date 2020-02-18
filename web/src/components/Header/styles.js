@@ -14,13 +14,14 @@ export const Content = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 30px;
 
     nav {
         display: flex;
         align-items: center;
 
         img {
-            width: 60%;
+            width: 15%;
             margin-right: 20px;
             padding-right: 20px;
         }

@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 
 import { signInRequest } from '~/store/modules/auth/actions';
 
+import logo from '~/assets/header/undertake_b.png';
 import sebrae from '~/assets/sebrae.jpg';
 
 const schema = Yup.object().shape({
@@ -23,6 +24,8 @@ export default function SignIn() {
 
     return(
         <>
+            <img src={logo} style={style} alt="Undertake" />
+
             <img src={sebrae} alt="SEBRAE" />
 
             <Form schema={schema} onSubmit={handleSubmit}>
@@ -34,4 +37,10 @@ export default function SignIn() {
             </Form>
         </>
     );
+}
+
+const style = {
+    width: '70%',
+    borderBottom: '1px solid white',
+    paddingBottom: 40,
 }

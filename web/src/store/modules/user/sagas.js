@@ -12,7 +12,9 @@ export function* registerAnalysis({ payload }) {
 
         const response = yield call(api.post, '/analysis', { obj_analysis, user_id });
 
-        yield put(registerAnalysisSuccess(response.data.analysis));
+        const response2 = yield call(api.post, '/generate-trail', { user_id });
+
+        yield put(registerAnalysisSuccess(response.data.analysis, response2.data.dataValues));
         
         history.push('/');
     } catch(err) {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import api from '~/services/api';
@@ -26,7 +27,7 @@ export default function Dashboard() {
         }
 
         loadLevels();
-    }, []);
+    }, [levels]);
 
     return (
         <Container>
@@ -38,10 +39,10 @@ export default function Dashboard() {
                     {levels.map(level => (
                         <li 
                         key={level.id} 
-                        className={level.id == lv ? 'activated' : (level.id < lv ? 'finished' : 'deactivated')}>
+                        className={level.id === lv ? 'activated' : (level.id < lv ? 'finished' : 'deactivated')}>
                             <span>Fase {level.id} - {level.name}</span>
-                            <button>{level.id == lv ? 'continuar' : (level.id < lv ? 'revisar' : '')}</button>
-                            <span>{level.id == lv ? 'Em andamento' : (level.id < lv ? 'Finalizado' : 'Bloqueado')}</span>
+                            <Redirect to="">{level.id === lv ? 'continuar' : (level.id < lv ? 'revisar' : '')}</Redirect>
+                            <span>{level.id === lv ? 'Em andamento' : (level.id < lv ? 'Finalizado' : 'Bloqueado')}</span>
                         </li>
                     ))}
                 </ul>

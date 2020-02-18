@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Radar } from 'react-chartjs-2';
-import api from '~/services/api';
 
 import { Container } from './styles';
 

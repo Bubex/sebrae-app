@@ -41,6 +41,13 @@ module.exports = {
         onDelete: 'SET NULL',
         allowNull: true,
       },
+      trail_id: {
+        type: Sequelize.INTEGER,
+        references: { model: 'trails', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true,
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,

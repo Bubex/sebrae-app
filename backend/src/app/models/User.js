@@ -30,6 +30,7 @@ class User extends Model {
     static associate(models) {
         this.belongsTo(models.Level, { foreignKey: 'level_id', as: 'level' });
         this.belongsTo(models.Analysis, { foreignKey: 'analysis_id', as: 'analysis' });
+        this.belongsTo(models.Trail, { foreignKey: 'trail_id', as: 'trail' });
     }
 }
 

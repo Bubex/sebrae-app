@@ -31,11 +31,12 @@ export function* signUp({ payload }) {
     try {
         const { name, email, password } = payload;
 
-        const register = yield call(api.post, 'users', {
+        const { data } = yield call(api.post, 'users', {
             name, email, password
         });
 
-        if(register) {
+
+        if(!data.error) {
             const login = yield call(api.post, 'sessions', {
                 email, password
             });
@@ -44,14 +45,18 @@ export function* signUp({ payload }) {
 
             if(login) {
                 api.defaults.headers['Authorization'] = `Bearer ${token}`;
-    
+
                 yield put(signInSuccess(token, user));
+
+                history.push('/');
             }
+        } else {
+            toast.error(data.error);
+            yield put(signFailure());
         }
-        
-        history.push('/analise');
+    
     } catch(err) {
-        toast.error('Erro ao cadastrar. Verifique seus dados.')
+        toast.error(err);
         yield put(signFailure());
     }
 }

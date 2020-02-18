@@ -15,7 +15,8 @@ routes.post('/sessions', SessionController.store);
 
 routes.use(authMiddleware);
 
-routes.get('/courses', CourseController.index);
+routes.post('/access-trail', CourseController.index);
+routes.post('/generate-trail', CourseController.sort);
 routes.get('/levels', LevelController.index);
 routes.post('/analysis', AnalysisController.store);
 

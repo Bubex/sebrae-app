@@ -5,10 +5,11 @@ import Course from '../app/models/Course';
 import CourseCategory from '../app/models/CourseCategory';
 import Level from '../app/models/Level';
 import Analysis from '../app/models/Analysis';
+import Trail from '../app/models/Trail';
 
 import databaseConfig from '../config/database';
 
-const models = [User, Course, CourseCategory, Level, Analysis];
+const models = [User, Course, CourseCategory, Level, Analysis, Trail];
 
 class Database {
     constructor() {

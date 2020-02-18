@@ -5,10 +5,10 @@ export function registerAnalysisRequest(obj_analysis, user_id) {
     };
 }
 
-export function registerAnalysisSuccess(analysis) {
+export function registerAnalysisSuccess(analysis, trail) {
     return {
         type: '@user/REGISTER_ANALYSIS_SUCCESS',
-        payload: { analysis },
+        payload: { analysis, trail },
     };
 }
 

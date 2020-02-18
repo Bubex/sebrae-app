@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom';
 
 import { signOut } from '~/store/modules/auth/actions';
 
-import logo from '~/assets/header/undertake.png';
+import logo from '~/assets/header/undertake_b.png';
 import iconProfile from '~/assets/header/icon-profile.png';
 
 import { Container, Content } from './styles';

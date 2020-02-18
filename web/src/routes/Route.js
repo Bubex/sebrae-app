@@ -23,11 +23,11 @@ export default function RouteWrapper({
         return <Redirect to="/dashboard" />
     }
 
-    if(rest.path == '/analise' && analysis != null) {
+    if(rest.path === '/analise' && analysis !== null) {
         return <Redirect to="/dashboard" />
     }
     
-    if(signed && rest.path != '/analise' && !analysis) {
+    if(signed && rest.path !== '/analise' && !analysis) {
         return <Redirect to="/analise" />
     }
 

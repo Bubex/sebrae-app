@@ -20,8 +20,6 @@ class SessionController {
             ],
         });
 
-        const { id, name, level, analysis } = user;
-
         if(!user) {
             return res.status(401).json({ error: 'Usuário não encontrado.' })
         }
@@ -29,6 +27,8 @@ class SessionController {
         if(!(await user.checkPassword(password))) {
             return res.status(401).json({ error: 'Senha incorreta.' });
         }
+        
+        const { id, name, level, analysis } = user;
 
         return res.json({
             user: {

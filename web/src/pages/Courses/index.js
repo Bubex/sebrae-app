@@ -1,47 +1,32 @@
-import React from 'react';
-import { ProgressBar } from 'react-bootstrap';
+import React, { useState,useEffect } from 'react';
 import { useSelector } from 'react-redux';
+
 import api from '~/services/api';
 
-import user from '~/assets/dashboard/user.png';
+import DashInfo from '~/components/DashInfo';
 
 import { Container, Content } from './styles';
 
 export default function Courses() {
-    const { profile, analysis } = useSelector(state => state.user);
-    const dados = Object.values(analysis);
+    const [ courses, setCourses ] = useState([]);
+    const trail_id = useSelector(state => state.user).trail.id;
+
+    useEffect(() => {
+        async function loadCourses() {
+            const { data } = await api.post('/access-trail', {
+                trail_id
+            });
+            setCourses(data);
+        }
+
+        loadCourses();
+    }, []);
 
     return (
         <Container>
-            <aside>
-                <header>
-                    <img src={user} alt="" />
-                    <h1>"{profile.level.name}"</h1>
-                    <span>{profile.company}</span>
-                </header>
-                <main>
-                    <label>Operacional</label>
-                    <ProgressBar min={0} max={10} now={dados[1]} />
-                    <label>Pessoal</label>
-                    <ProgressBar min={0} max={10} now={dados[2]} />
-                    <label>Finanças</label>
-                    <ProgressBar min={0} max={10} now={dados[3]} />
-                    <label>Fiscal</label>
-                    <ProgressBar min={0} max={10} now={dados[4]} />
-                    <label>Administrativo</label>
-                    <ProgressBar min={0} max={10} now={dados[5]} />
-                    <label>Comercial</label>
-                    <ProgressBar min={0} max={10} now={dados[6]} />
-                    <label>Jurídico</label>
-                    <ProgressBar min={0} max={10} now={dados[7]} />
-                </main>
-                <footer>
-                    <button>onde tenho que chegar</button>
-                    <button>premiações</button>
-                </footer>
-            </aside>
+            <DashInfo />
             <Content>
-
+                <h1></h1>
             </Content>
         </Container>
     );

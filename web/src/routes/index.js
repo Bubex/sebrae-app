@@ -9,6 +9,7 @@ import Profile from '~/pages/Profile';
 import Analysis from '~/pages/Analysis';
 import Courses from '~/pages/Courses';
 import Dashboard from '~/pages/Dashboard';
+import Welcome from '~/pages/Welcome';
 
 export default function Routes() {
     return ( 
@@ -20,6 +21,7 @@ export default function Routes() {
             <Route path="/perfil" component={ Profile } isPrivate />
             <Route path="/analise" component={ Analysis } isPrivate />
             <Route path="/cursos" component={ Courses } isPrivate />
+            <Route path="/bem-vindo" component={ Welcome } isPrivate />
         </Switch>
     )
 }
