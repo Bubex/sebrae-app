@@ -15,5 +15,31 @@ A respeito da parte técnica (desenvolvimento) do projeto:
 -- Sequelize como ORM.
 
 
-- Para rodar o projeto, é necessário clonar o repositório e rodar o comando 'npm install' ou 'yarn install' tanto na pasta 'backend' quanto na pasta 'web'.
-- Também será necessário ter
+- Para rodar o projeto, é necessário ter instalado o MySQL na máquina e clonar o repositório. Após o repositório clonado, e com o prompt aberto aberto na pasta raiz do projeto, é necessário rodar os seguintes comandos (nessa ordem, e considerando usuários Windows):
+
+
+* cd backend
+* yarn install
+* yarn sequelize db:create
+* yarn sequelize db:migrate
+* yarn sequelize db:seed:all
+* yarn dev
+
+
+* cd ../web
+* yarn install
+* yarn start
+
+
+Com isso, a aplicação já estará acessível através da rota local padrão
+http://localhost:3000
+
+Os usuários podem ser gerados no formulário de registro para acesso total à aplicação.
+
+
+
+Esperamos que tenha ficado bem explicado!
+
+Mais uma vez, agradecemos pelo excelente evento e, principalmente, pelo privilégio de podermos compartilhar nosso conhecimento e aprender muito com as maiores empresas do Brasil.
+
+#ObrigadoSHAWEE #ObrigadoSEBRAE #ObrigadoROCKETSEAT
