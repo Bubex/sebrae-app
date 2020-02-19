@@ -7,10 +7,10 @@ __________________________________________________
 
 A respeito da parte técnica (desenvolvimento) do projeto:
 - O projeto foi desenvolvido utilizando as seguintes tecnologias:
--- NodeJS no backend.
--- ReactJS para o frontend.
--- MySQL como gerenciador de banco de dados.
--- Sequelize como ORM.
+* NodeJS no backend.
+* ReactJS para o frontend.
+* MySQL como gerenciador de banco de dados.
+* Sequelize como ORM.
 
 
 - Para rodar o projeto, é necessário ter instalado o MySQL na máquina e clonar o repositório. Após o repositório clonado, e com o prompt aberto aberto na pasta raiz do projeto, é necessário rodar os seguintes comandos (nessa ordem, e considerando usuários Windows):
