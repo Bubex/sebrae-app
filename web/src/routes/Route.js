@@ -23,13 +23,13 @@ export default function RouteWrapper({
         return <Redirect to="/dashboard" />
     }
 
-    if(profile.level.id >= 4) {
-        return <Redirect to="/sucesso" />
-    }
+    // if(profile.level.id >= 4) {
+    //     return <Redirect to="/sucesso" />
+    // }
 
-    if(profile.level.id < 4 && rest.path === '/sucesso'){
-        return <Redirect to="/dashboard" />
-    }
+    // if(profile.level.id < 4 && rest.path === '/sucesso'){
+    //     return <Redirect to="/dashboard" />
+    // }
 
     if(rest.path === '/analise' && analysis !== null) {
         return <Redirect to="/dashboard" />
