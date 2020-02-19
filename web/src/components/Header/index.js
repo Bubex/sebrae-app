@@ -20,6 +20,7 @@ export default function Header() {
 
     function myProfile() {
         return <Redirect to="/perfil" />
+        console.log('oi')
     }
 
     return(
@@ -38,7 +39,7 @@ export default function Header() {
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item onClick={myProfile}>Meu Perfil</Dropdown.Item>
+                            <Dropdown.Item><Link to="/perfil">Meu Perfil</Link></Dropdown.Item>
                             <Dropdown.Item onClick={handleSignOut}>Sair</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>

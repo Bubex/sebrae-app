@@ -10,6 +10,7 @@ import Analysis from '~/pages/Analysis';
 import Courses from '~/pages/Courses';
 import Dashboard from '~/pages/Dashboard';
 import Welcome from '~/pages/Welcome';
+import Endline from '~/pages/Endline';
 
 export default function Routes() {
     return ( 
@@ -22,6 +23,7 @@ export default function Routes() {
             <Route path="/analise" component={ Analysis } isPrivate />
             <Route path="/cursos" component={ Courses } isPrivate />
             <Route path="/bem-vindo" component={ Welcome } isPrivate />
+            <Route path="/sucesso" component={ Endline } isPrivate />
         </Switch>
     )
 }

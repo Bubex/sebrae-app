@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import api from '~/services/api';
@@ -20,14 +20,12 @@ export default function Dashboard() {
     const imagesNv = ['', Nv1, Nv2, Nv3, Nv4];
 
     useEffect(() => {
-        async function loadLevels() {
+        const loadLevels = async () => {
             const response = await api.get('/levels');
-
             setLevels(response.data.levels);
         }
-
-        loadLevels();
-    }, [levels]);
+        loadLevels([]);
+    }, []);
 
     return (
         <Container>
@@ -41,7 +39,7 @@ export default function Dashboard() {
                         key={level.id} 
                         className={level.id === lv ? 'activated' : (level.id < lv ? 'finished' : 'deactivated')}>
                             <span>Fase {level.id} - {level.name}</span>
-                            <Redirect to="">{level.id === lv ? 'continuar' : (level.id < lv ? 'revisar' : '')}</Redirect>
+                            <Link to={{ pathname:'/cursos', state: { fase: `Fase ${level.id}`, level_id: 'nv'+level.id } }}>{level.id === lv ? 'continuar' : (level.id < lv ? 'revisar' : '')}</Link>
                             <span>{level.id === lv ? 'Em andamento' : (level.id < lv ? 'Finalizado' : 'Bloqueado')}</span>
                         </li>
                     ))}

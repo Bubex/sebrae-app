@@ -51,13 +51,18 @@ export const Content = styled.div`
                 font-weight: 900;
             }
 
-            Redirect {
+            a {
                 border: none;
                 background: #FFF;
                 padding: 5px 30px;
                 color: #1057E5;
                 border-radius: 30px;
                 font-weight: 600;
+
+                &:hover{
+                    text-decoration: none;
+                    background: #d2cece
+                }
             }
 
             span:last-of-type {
@@ -87,8 +92,13 @@ export const Content = styled.div`
                 color: #B8B9BB;
             }
 
-            Redirect {
+            a {
                 display: none;
+
+                &:hover{
+                    text-decoration: none;
+                    background: #d2cece
+                }
             }
         }
     }

@@ -8,7 +8,7 @@ import sebrae from '~/assets/sebrae.jpg';
 import { signUpRequest } from '~/store/modules/auth/actions';
 
 const schema = Yup.object().shape({
-    name: Yup.string().required('Insira seu nome'),
+    name: Yup.string().min(3, 'Seu nome deve ter pelo menos 3 caracteres.').required('Insira seu nome'),
     email: Yup.string().email('Insira um e-mail válido').required('Insira um e-mail válido'),
     password: Yup.string().required('Insira uma senha').min(8, 'A senha deve ter pelo menos 8 caracteres'),
     password2: Yup.string().oneOf([Yup.ref('password'), null], "As senhas não conferem").required('Confirme sua senha')
@@ -27,6 +27,7 @@ export default function SignUp() {
 
             <Form schema={schema} onSubmit={handleSubmit}>
                 <Input name="name" type="text" placeholder="Nome completo" />
+                <Input name="company" type="text" placeholder="Nome da empresa" />
                 <Input name="email" type="email" placeholder="E-mail" />
                 <Input name="password" type="password" placeholder="Senha" />
                 <Input name="password2" type="password" placeholder="Confirme sua senha" />

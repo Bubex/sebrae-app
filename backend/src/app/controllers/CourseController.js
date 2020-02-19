@@ -9,19 +9,26 @@ import CourseCategory from '../models/CourseCategory';
 
 class CourseController {
     async index(req, res) {
-        const trail = await Trail.findByPk(req.body.trail_id);
+        const trail = await Trail.findByPk(req.body.trail_id, {
+            attributes: [req.body.level_id]
+        });
 
-        const fase1 = await Course.findAll({
-            where: {  },
-            attributes: ['name', 'description', 'link', 'thumb'],
-            include: [{
+        const ids = trail.dataValues.nv1.split(',');
+
+        const courses = await Course.findAll({
+            where: { 
+                id: {
+                    [Sequelize.Op.in]: [parseInt(ids[0]), parseInt(ids[1]), parseInt(ids[2]), parseInt(ids[3])]
+                },
+             },
+             include: [{
                 model: CourseCategory,
                 as: 'category',
                 attributes: ['name']
             }]
         });
 
-        return res.json({ trail });
+        return res.json({ courses });
     }
 
     async store(req, res) {

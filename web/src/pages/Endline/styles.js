@@ -8,26 +8,32 @@ export const Container = styled.div`
     align-items: center;
 
     div {
-        width: 500px;
-        height: 450px;
+        width: 100%;
+        max-width: 1100px;
+        height: 650px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         background: #FFF;
-        margin: 150px auto;
+        margin: 50px auto;
         padding: 50px;
         border-radius: 30px;
 
-        img {
-            width: 200px;
-            height: 200px;
-        }
+
 
         h1 {
-            font-size: 16px;
-            font-weight: 500;
-            color: #888E92;
+            font-size: 35px;
+            font-weight: 900;
+            color: #0E52AA;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        h2 {
+            font-size: 25px;
+            font-weight: 900;
+            color: #156BDB;
             text-align: center;
             margin: 30px 0;
         }
@@ -39,6 +45,7 @@ export const Container = styled.div`
             font-weight: 700;
             padding: 5px 60px;
             border-radius: 20px;
+            margin-top: 30px;
 
             &:hover {
                 text-decoration: none;

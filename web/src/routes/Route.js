@@ -13,7 +13,7 @@ export default function RouteWrapper({
     ...rest
 }) {
     const { signed } = store.getState().auth;
-    const { analysis } = store.getState().user;
+    const { analysis, profile } = store.getState().user;
 
     if(!signed && isPrivate) {
         return <Redirect to="/" />
@@ -23,12 +23,20 @@ export default function RouteWrapper({
         return <Redirect to="/dashboard" />
     }
 
+    if(profile.level.id >= 4) {
+        return <Redirect to="/sucesso" />
+    }
+
+    if(profile.level.id < 4 && rest.path === '/sucesso'){
+        return <Redirect to="/dashboard" />
+    }
+
     if(rest.path === '/analise' && analysis !== null) {
         return <Redirect to="/dashboard" />
     }
     
-    if(signed && rest.path !== '/analise' && !analysis) {
-        return <Redirect to="/analise" />
+    if(rest.path !== '/bem-vindo' && rest.path !== '/analise' && !analysis) {
+        return <Redirect to="/bem-vindo" />
     }
 
 

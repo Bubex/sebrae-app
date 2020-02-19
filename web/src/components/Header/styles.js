@@ -47,6 +47,14 @@ export const Content = styled.div`
                     box-shadow: none; 
                 }
             }
+
+            a {
+                color: #007bff;
+
+                &:hover {
+                    text-decoration: none;
+                }
+            }
         }
     }
 `;
