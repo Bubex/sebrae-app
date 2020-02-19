@@ -3,9 +3,7 @@
 Olá! 
 Primeiramente, gostaríamos de agradecer a equipe Shawee e às empresas desafiantes, em especial a SEBRAE, por estarem abrindo mais portas do conhecimento à toda comunidade. Sabemos da importância da realização de eventos como esse, que quebram todo tipo de barreira, geram conexões e interatividades em gente de todo o mundo e alavancam a busca pelo conhecimento e evolução tecnológica.
 
-
-
-
+__________________________________________________
 
 A respeito da parte técnica (desenvolvimento) do projeto:
 - O projeto foi desenvolvido utilizando as seguintes tecnologias:
@@ -17,6 +15,7 @@ A respeito da parte técnica (desenvolvimento) do projeto:
 
 - Para rodar o projeto, é necessário ter instalado o MySQL na máquina e clonar o repositório. Após o repositório clonado, e com o prompt aberto aberto na pasta raiz do projeto, é necessário rodar os seguintes comandos (nessa ordem, e considerando usuários Windows):
 
+__________________________________________________
 
 * cd backend
 * yarn install
@@ -25,18 +24,20 @@ A respeito da parte técnica (desenvolvimento) do projeto:
 * yarn sequelize db:seed:all
 * yarn dev
 
+__________________________________________________
 
 * cd ../web
 * yarn install
 * yarn start
 
+__________________________________________________
 
 Com isso, a aplicação já estará acessível através da rota local padrão
 http://localhost:3000
 
 Os usuários podem ser gerados no formulário de registro para acesso total à aplicação.
 
-
+__________________________________________________
 
 Esperamos que tenha ficado bem explicado!
 
