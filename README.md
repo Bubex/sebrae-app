@@ -32,6 +32,13 @@ __________________________________________________
 
 __________________________________________________
 
+@ POST MORTEM
+- Devido ao prazo apertado, não conseguimos implementar tudo aquilo que planejávamos. Sendo assim, consideramos válido já adiantar algumas ponderações sobre o projeto:
+* Não nos atentamos para a versão responsiva do sistema.
+* Tivemos algumas falhas de gerência de estado no ReactJS. O tester pode alterar algumas informações direto no banco para ver como a aplicação reage ás mudanças, mas é necessário realizar logout e login novamente no usuário alterado.
+
+__________________________________________________
+
 Com isso, a aplicação já estará acessível através da rota local padrão
 http://localhost:3000
 
